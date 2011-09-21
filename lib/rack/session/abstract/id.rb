@@ -95,7 +95,9 @@ module Rack
         end
 
         def inspect
-          load_for_read!
+          unless caller.detect{|line| line.match(/inspect/)}
+            load_for_read!
+          end
           super
         end
 

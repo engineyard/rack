@@ -66,6 +66,11 @@ module Rack
         env.kind_of? Hash
       }
 
+      # Possible alternative implementation would solve THIS inspect, but not inspects in general
+      # unless env.kind_of? Hash
+      #   assert("env #{env.inspect} is not a Hash, but #{env.class}") { false }
+      # end
+
       ##
       ## The environment is required to include these variables
       ## (adopted from PEP333), except when they'd be empty, but see
